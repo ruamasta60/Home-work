@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         diemMiengTf.delegate = self
         diemGiuaKiTf.delegate = self
         diemCuoiKiTf.delegate = self
+        //
     }
     
     override func viewDidAppear(_ animated: Bool) {
