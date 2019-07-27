@@ -44,8 +44,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     return (false, "Ký tự đầu tiên của điểm miệng không được chứa dấu phẩy (,) hoặc dấu (.)")
                 } else {
                     for i in 0..<splitDiemMieng.count {
-                        if Float(splitDiemMieng[i])! > Float(10.0) {
-                            return (false, "Điểm miệng không được lớn hơn 10 điểm")
+                        if let diemMieng = Float(splitDiemMieng[i]) {
+                            if diemMieng > Float(10.0) {
+                                return (false, "Điểm miệng không được lớn hơn 10 điểm")
+                            }
+                        } else {
+                            let splitFloatDiem = splitDiemMieng[i].split(separator: ".")
+                            diemMiengTf.text = ""
+                            return (false, "Sai định dạng điểm miệng")
                         }
                     }
                 }
@@ -66,8 +72,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     return (false, "Ký tự đầu tiên của điểm giữa kì không được chứa dấu phẩy (,) hoặc dấu (.)")
                 } else {
                     for i in 0..<splitDiemGiuaKi.count {
-                        if Float(splitDiemGiuaKi[i])! > Float(10.0) {
-                            return (false, "Điểm giữa kì không được lớn hơn 10 điểm")
+                        if let diemGiuaKi = Float(splitDiemGiuaKi[i]) {
+                            if diemGiuaKi > Float(10.0) {
+                                return (false, "Điểm giữa kì không được lớn hơn 10 điểm")
+                            }
+                        } else {
+                            let splitFloatDiemGiuaKi = splitDiemGiuaKi[i].split(separator: ".")
+                            diemGiuaKiTf.text = ""
+                            return (false, "Sai định dạng điểm giữa kì")
                         }
                     }
                 }
@@ -87,8 +99,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     return (false, "Ký tự đầu tiên của điểm giữa kì không được chứa dấu phẩy (,) hoặc dấu (.)")
                 } else {
                     for i in 0..<splitDiemCuoiKi.count {
-                        if Float(splitDiemCuoiKi[i])! > Float(10.0) {
-                            return (false, "Điểm cuối kì không được lớn hơn 10 điểm")
+                        if let diemCuoiKi = Float(splitDiemCuoiKi[i]) {
+                            if diemCuoiKi > Float(10.0) {
+                                return (false, "Điểm cuối kì không được lớn hơn 10 điểm")
+                            }
+                        } else {
+                            let splitFloatDiemCuoiKi = splitDiemCuoiKi[i].split(separator: ".")
+                            diemCuoiKiTf.text = ""
+                            return (false, "Sai định dạng điểm cuối kì")
                         }
                     }
                 }
@@ -190,6 +208,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let characterset = CharacterSet(charactersIn: "0123456789.,")
+        let text = textField.text?.replacingOccurrences(of: "..", with: ".").replacingOccurrences(of: ",,", with: ",")
         if string == "" {
             return true
         }

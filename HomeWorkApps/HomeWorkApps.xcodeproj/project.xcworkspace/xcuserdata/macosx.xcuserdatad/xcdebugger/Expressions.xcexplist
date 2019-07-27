@@ -3,6 +3,25 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ViewController.textField(_:shouldChangeCharactersIn:replacementString:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField.text">
+            </PersistentString>
+            <PersistentString
+               value = "text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.validate():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "splitDiemMieng[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ViewController.CountAct(_:):ViewController.swift">
          <PersistentStrings>
             <PersistentString
